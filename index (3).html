@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amur Temur Imperiyasi va Bolqon Mamlakatlari: Taqqoslash</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(30,60,114,0.9), rgba(42,82,152,0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23e3f2fd" width="1200" height="600"/><path fill="%23bbdefb" d="M0 200 Q300 100 600 200 T1200 200 V600 H0 Z"/><circle fill="%2397cbff" cx="200" cy="150" r="30"/><circle fill="%2364b5f6" cx="800" cy="180" r="25"/></svg>');
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            color: #1e3c72;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(255,215,0,0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,215,0,0.6);
+        }
+
+        /* Sections */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #1e3c72;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e);
+            border-radius: 2px;
+        }
+
+        /* History Cards */
+        .history-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .history-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            transition: all 0.4s;
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .history-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3c72, #ffd700, #2a5298);
+        }
+
+        .history-card.temur {
+            border-top: 4px solid #1e3c72;
+        }
+
+        .history-card.balkan {
+            border-top: 4px solid #ff6b6b;
+        }
+
+        .history-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .temur-icon {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+        }
+
+        .balkan-icon {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+            color: white;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1e3c72;
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        th {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .temur-col {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            color: #1e3c72;
+        }
+
+        .balkan-col {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            color: #c62828;
+        }
+
+        tr:hover td {
+            background: rgba(30,60,114,0.05);
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #1e3c72, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .history-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            th, td {
+                padding: 1rem 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                <span>Tarixiy Taqqoslash</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#temur">Amur Temur</a></li>
+                <li><a href="#balkan">Bolqon</a></li>
+                <li><a href="#comparison">Taqqoslash</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1>Amur Temur Imperiyasi vs Bolqon Mamlakatlari</h1>
+            <p>Tarixning eng muhim imperiyalarini va mintaqaviy kuchlarni chuqur tahlil qilamiz. Siyosiy, harbiy va madaniy jihatlarni solishtiramiz.</p>
+            <a href="#comparison" class="cta-button">Taqqoslashni Boshlash</a>
+        </div>
+    </section>
+
+    <!-- Amur Temur Section -->
+    <section id="temur" class="container">
+        <h2 class="section-title fade-in">Amur Temur Imperiyasi</h2>
+        <div class="history-grid">
+            <div class="history-card temur fade-in">
+                <div class="card-icon temur-icon">
+                    <i class="fas fa-sword"></i>
+                </div>
+                <h3 class="card-title">Harbiy Kuch</h3>
+                <p>Amur Temur o'z imperiyasini 14-asr oxiri - 15-asr boshida Markaziy Osiyo, Eron, Hindiston va Yaqin Sharqni zabt etib qurdi. Uning armiyasi 200,000 dan ortiq askardan iborat edi.</p>
+            </div>
+            <div class="history-card temur fade-in">
+                <div class="card-icon temur-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <h3 class="card-title">Boshqaruv Tizimi</h3>
+                <p>Imperiya markazlashgan monarxiya edi. Temur o'zining "Tuzuklar"i orqali qat'iy qonunlar joriy etdi va ma'muriy islohotlar o'tkazdi.</p>
+            </div>
+            <div class="history-card temur fade-in">
+                <div class="card-icon temur-icon">
+                    <i class="fas fa-mosque"></i>
+                </div>
+                <h3 class="card-title">Madaniy Meros</h3>
+                <p>Samarkandni jahon madaniyat markaziga aylantirdi. Bibi Xonim masjidi, Gur-Amir maqbarasi va Registon maydonini qurdirgan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bolqon Mamlakatlari Section -->
+    <section id="balkan" class="container" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+        <h2 class="section-title fade-in">Bolqon Mamlakatlari</h2>
+        <div class="history-grid">
+            <div class="history-card balkan fade-in">
+                <div class="card-icon balkan-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="card-title">Siyosiy Tuzilma</h3>
+                <p>Bolqon mamlakatlari (Serbiya, Bolgariya, Xorvatiya) XIX-XX asrlarda milliy davlatlar sifatida shakllandi. Ko'pincha konfederatsiya yoki federatsiya shaklida.</p>
+            </div>
+            <div class="history-card balkan fade-in">
+                <div class="card-icon balkan-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="card-title">Etnik Xilma-xillik</h3>
+                <p>Mintaqada slavyanlar, turklar, greklar, albanlar yashaydi. Bu etnik xilma-xillik siyosiy beqarorlikka sabab bo'lgan.</p>
+            </div>
+            <div class="history-card balkan fade-in">
+                <div class="card-icon balkan-icon">
+                    <i class="fas fa-globe-europe"></i>
+                </div>
+                <h3 class="card-title">Geosiyosiy Ahvoli</h3>
+                <p>Evropa Ittifoqi va Rossiya o'rtasida strategik joylashgan. NATO va Yevroittifoqga a'zo bo'lish jarayonida.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparison" class="comparison-section container">
+        <h2 class="section-title fade-in">To'liq Taqqoslash</h2>
+        
+        <div class="comparison-table fade-in">
+            <table>
+                <thead>
+                    <tr class="table-header">
+                        <th>Jihatlar</th>
+                        <th class="temur-col">Amur Temur Imperiyasi</th>
+                        <th class="balkan-col">Bolqon Mamlakatlari</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Davriyat</strong></td>
+                        <td class="temur-col">1370-1405 yillar</td>
+                        <td class="balkan-col">XIX-XXI asrlar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hududi</strong></td>
+                        <td class="temur-col">4,4 mln km²</td>
+                        <td class="balkan-col">~500 ming km²</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Aholisi</strong></td>
+                        <td class="temur-col">~17 mln kishi</td>
+                        <td class="balkan-col">~60 mln kishi</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Boshqaruv</strong></td>
+                        <td class="temur-col">Mutlaq monarxiya</td>
+                        <td class="balkan-col">Parlamentar respublikalar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Harbiy kuch</strong></td>
+                        <td class="temur-col">200,000+ askar</td>
+                        <td class="balkan-col">Modern texnologiyalar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Iqtisodiyot</strong></td>
+                        <td class="temur-col">Savdo yo'llari nazorati</td>
+                        <td class="balkan-col">Turizm, sanoat, xizmatlar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Diniy asos</strong></td>
+                        <td class="temur-col">Islom (Sunniy)</td>
+                        <td class="balkan-col">Xristianlik (Pravoslav, katolik)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card fade-in">
+                <div class="stat-number">14-asr</div>
+                <strong>Temur davri</strong>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">4.4M</div>
+                <strong>km² hudud</strong>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">60+</div>
+                <strong>Million aholi</strong>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">NATO/EI</div>
+                <strong>Integratsiya</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Tarixiy Taqqoslash. Barcha huquqlar himoyalangan.</p>
+            <p>Tarixiy ma'lumotlar ilmiy manbalarga asoslangan.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 60, 114, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
